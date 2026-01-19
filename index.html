@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ardian Wisnu Pradana - Portofolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #FF6584;
+            --dark-color: #2D3748;
+            --light-color: #F7FAFC;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeDown 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeUp 1s ease 0.5s both;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            background: white;
+            color: var(--primary-color);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+            animation: fadeUp 1s ease 1s both;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 50px;
+            height: 3px;
+            background: var(--secondary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(108, 99, 255, 0.2);
+        }
+
+        .about-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--dark-color);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .skill-card:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .skill-card i {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            max-width: 1200px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary-color);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        /* Animations */
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">ARDIAN WP</div>
+            <div class="nav-links">
+                <a href="#about">Tentang Saya</a>
+                <a href="#skills">Keterampilan</a>
+                <a href="#portfolio">Portofolio</a>
+                <a href="#contact">Hubungi Saya</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>ARDIAN WISNU PRADANA</h1>
+            <p>Siswa SMKN 1 Pracimantoro | Pemimpi Masa Depan | Pembuat Konten Teknologi</p>
+            <a href="#about" class="btn">Kenalan Yuk!</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">TENTANG SAYA</h2>
+        <div class="about-content">
+            <img src="https://via.placeholder.com/500x500" alt="Foto Ardian Wisnu Pradana" class="about-img">
+            <div class="about-text">
+                <p><strong>Nama Lengkap:</strong> Ardian Wisnu Pradana</p>
+                <p><strong>Tanggal Lahir:</strong> [Tambahkan Tanggal Lahirmu]</p>
+                <p><strong>Tempat Lahir:</strong> Wonogiri</p>
+                <p><strong>Tempat Tinggal:</strong> Giritontro, Tlogosari</p>
+                <p><strong>Sekolah:</strong> SMKN 1 Pracimantoro</p>
+                <p>Saya berusia 16 tahun dan memiliki minat besar di bidang teknologi, desain grafis, dan pemrograman. Meski masih muda, saya suka belajar hal baru dan mengembangkan keterampilan saya melalui projek-projek kecil. Tujuan saya adalah menjadi profesional yang handal di bidang yang saya tekuni dan memberikan kontribusi positif bagi lingkungan sekitar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="skills-container">
+            <h2 class="section-title">KETERAMPILAN SAYA</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h3>Pemrograman</h3>
+                    <p>Dasar HTML, CSS, JavaScript</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-paint-brush"></i>
+                    <h3>Desain Grafis</h3>
+                    <p>Canva, Adobe Photoshop Dasar</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Desain UI/UX</h3>
+                    <p>Figma Dasar</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Editing Video</h3>
+                    <p>CapCut, Adobe Premiere Pro Dasar</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="section-title">PORTOFOLIO SAYA</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <img src="https://via.placeholder.com/400x200" alt="Projek 1" class="portfolio-img">
+                <div class="portfolio-info">
+                    <h3>Website Sekolah Mini</h3>
+                    <p>Projek tugas sekolah membuat website sederhana untuk kelas</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://via.placeholder.com/400x200" alt="Projek 2" class="portfolio-img">
+                <div class="portfolio-info">
+                    <h3>Desain Poster Pendidikan</h3>
+                    <p>Desain poster untuk kampanye literasi di lingkungan sekitar</p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://via.placeholder.com/400x200" alt="Projek 3" class="portfolio-img">
+                <div class="portfolio-info">
+                    <h3>Video Profil Kelas</h3>
+                    <p>Video dokumentasi aktivitas kelas selama satu semester</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">HUBUNGI SAYA</h2>
+        <p>Ingin berkolaborasi atau bertanya? Jangan ragu untuk menghubungi saya!</p>
+        <a href="https://wa.me/[NomorWhatsAppmu]" class="btn" style="background: var(--secondary-color); color: white;">Chat Via WhatsApp</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Ardian Wisnu Pradana - Semua Hak Dilindungi</p>
+        <p>Made with ❤️ dari Giritontro, Wonogiri</p>
+    </footer>
+
+    <script>
+        // Animasi scroll halus
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Tampilan navbar saat scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'white';
+            } else {
+                nav.style.background = 'rgba(255,255,255,0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
